@@ -1,19 +1,10 @@
-h6. The OAuth filter project can be found at the following location in the subversion repository
-
-svn://scm.ign.com/ign-main/OAuth/oauthfilter/trunk
+The OAuth filter supports validating signed OAuth request that use the following algorithms: HMAC-SHA1 and RSA-SHA1.
 
 
-h6. The OAuth filter supports validating signed OAuth request that use the following algorithms: HMAC-SHA1 and RSA-SHA1.
+Sample usage via web.xml
 
+The follow example applies the OAuth filter to any HTTP PUT and POST requests that access resources exist in the path: /v1/gobLocale
 
-h6. Sample usage via web.xml
-
-
-
-The follow example applies the OAuth filter to any HTTP PUT and POST requests that access resources which exist in the path: /v1/gobLocale
-
-
-{code:xml}
 <filter>
     <filter-name>OAuthFilter</filter-name>
     <filter-class>com.ign.oauth.filter.OAuthFilter</filter-class>
@@ -26,23 +17,11 @@ The follow example applies the OAuth filter to any HTTP PUT and POST requests th
     <filter-name>OAuthFilter</filter-name>
     <url-pattern>/v1/gobLocale/*</url-pattern>
 </filter-mapping>
-{code}
 
-h6.
-
-
-
-
-
-
-
-
-
-h6. Note
+Note
 
 The OAuthFilter must be declared before the Google GuiceFilter, com.google.inject.servlet.GuiceFilter, if it exist in the web.xml file.
 
+Customization
 
-h6. Customization
-
-The current implementation access the consumer data (key/secret/rsakey) via the table, OAUTH_CONSUMER, from the NIB database.&nbsp; If this is not desirable one can modify the persistence.xml file in the project accordingly.&nbsp; Also one needs to modify the APIKey's project to write the data to a different table/db as needed. &nbsp; 
+The current implementation access the consumer data (key/secret/rsakey) via the table, OAUTH_CONSUMER, from the NIB database.  If this is not desirable one can modify the persistence.xml file in the project accordingly.  Also one needs to modify the APIKey's project to write the data to a different table/db as needed. 
