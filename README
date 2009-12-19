@@ -24,4 +24,4 @@ The OAuthFilter must be declared before the Google GuiceFilter, com.google.injec
 
 Customization
 
-The current implementation access the consumer data (key/secret/rsakey) via the table, OAUTH_CONSUMER, from the NIB database.  If this is not desirable one can modify the persistence.xml file in the project accordingly.  Also one needs to modify the APIKey's project to write the data to a different table/db as needed. 
+The current implementation access the consumer data (key/secret/rsakey) via the table, OAUTH_CONSUMER, from the database (datasource=OAuth).  If this is not desirable one can modify the persistence.xml file in the project accordingly.  
